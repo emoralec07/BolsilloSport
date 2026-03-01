@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bolsillo Sport</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>BOLSILLO SPORT</h1>
+      <p>Gestiona tu bankroll como un profesional</p>
+    </header>
+
+    <main>
+      <!-- Estadísticas -->
+
+      <section class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-label">Bankroll actual</span>
+          <span class="stat-value" id="statBalance">S/ 0.00</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Ganancia / Pérdida</span>
+          <span class="stat-value" id="statProfit">S/ 0.00</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">% de acierto</span>
+          <span class="stat-value" id="statWinRate">0%</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Total apuestas</span>
+          <span class="stat-value" id="statTotal">0</span>
+        </div>
+      </section>
+      <div class="grid">
+        <!-- Formulario -->
+
+        <div class="card">
+          <h2>➕ Nueva apuesta</h2>
+
+          <label>Bankroll inicial (solo primera vez)</label>
+          <div class="row">
+            <input
+              type="number"
+              id="bankrollInput"
+              placeholder="Ej: 500"
+              min="0"
+              step="0.01"
+            />
+            <button class="btn" onclick="setBankroll()">Establecer</button>
+          </div>
+
+          <hr />
+
+          <label>Deporte</label>
+          <select id="sportSelect">
+            <option value="">— seleccionar —</option>
+            <option>⚽ Fútbol</option>
+            <option>🏀 Básquet</option>
+            <option>🎾 Tenis</option>
+            <option>🏈 Americano</option>
+            <option>🥊 Boxeo / MMA</option>
+            <option>🏆 Otro</option>
+          </select>
+
+          <label>Descripción (ej: Real Madrid vs Barcelona)</label>
+          <input
+            type="text"
+            id="descInput"
+            placeholder="Ej: Real Madrid gana"
+          />
+
+          <label>Monto apostado (S/)</label>
+          <input
+            type="number"
+            id="amountInput"
+            placeholder="Ej: 50"
+            min="0"
+            step="0.01"
+          />
+
+          <label>Cuota</label>
+          <input
+            type="number"
+            id="oddInput"
+            placeholder="Ej: 1.80"
+            min="1"
+            step="0.01"
+          />
+
+          <label>Resultado</label>
+          <select id="resultSelect">
+            <option value="pending">⏳ Pendiente</option>
+            <option value="won">✅ Ganada</option>
+            <option value="lost">❌ Perdida</option>
+          </select>
+
+          <button class="btn" onclick="addBet()">Registrar Apuesta</button>
+        </div>
+
+        <!-- Historial -->
+
+        <div class="card">
+          <h2>📋 Historial de apuestas</h2>
+          <div id="betList">
+            <p class="empty">Aún no hay apuestas registradas.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
